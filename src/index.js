@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import JSON from './db.json';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//import a component
+import Header from './components/header';
+import NewsList from './components/news-list';
+import Footer from './components/footer';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+//create a component and capitalize it
+//here is an example of a simple component with a div and h1.
+class App extends Component {
+
+    state = {
+        news: JSON,
+        footerText:'I am a happy footer'
+    }
+
+    getKeywords = () => {
+        console.log('hey')
+    }
+
+    render(){
+
+        return(
+            <div className="header">
+                <Header
+                    keywords={this.getKeywords}
+                />
+                <NewsList
+                    news={this.state.news}
+                />
+                <Footer footerText={this.state.footerText}/>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'))

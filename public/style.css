@@ -1,0 +1,21 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+header {
+    background: #ececec;
+}
+header.active {
+    background: #ff00ff;
+}
+header.not-active {
+    background: #ffff00;
+}
+.logo {
+    color: #3c3c3c;
+
+}
+.news-item {
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+}
